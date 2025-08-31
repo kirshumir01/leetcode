@@ -1,6 +1,8 @@
 package hard;
 
 /*
+#2382 Maximum Segment Sum After Removals
+
 You are given two 0-indexed integer arrays nums and removeQueries, both of length n.
 For the ith query, the element in nums at the index removeQueries[i] is removed, splitting nums into different segments.
 A segment is a contiguous sequence of positive integers in nums.

@@ -6,6 +6,8 @@ import java.util.Map;
 import java.util.TreeMap;
 
 /*
+#3410 Maximize Subarray Sum After Removing All Occurrences of One Element
+
 You are given an integer array nums.
 You can do the following operation on the array at most once:
 Choose any integer x such that nums remains non-empty on removing all occurrences of x.

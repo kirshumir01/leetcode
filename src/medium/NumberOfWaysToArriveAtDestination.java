@@ -3,6 +3,8 @@ package medium;
 import java.util.*;
 
 /*
+#1976 NUMBER OF WAYS TO ARRIVE DESTINATION
+
 You are in a city that consists of n intersections numbered from 0 to n - 1 with bi-directional roads between some intersections.
 The inputs are generated such that you can reach any intersection from any other intersection and that there is at most one road between any two intersections.
 You are given an integer n and a 2D integer array roads where roads[i] = [ui, vi, timei] means that there is a road between intersections ui and vi that takes timei minutes to travel.
@@ -25,6 +27,7 @@ Input: n = 2, roads = [[1,0,10]]
 Output: 1
 Explanation: There is only one way to go from intersection 0 to intersection 1, and it takes 10 minutes.
  */
+
 public class NumberOfWaysToArriveAtDestination {
     public int countPaths(int n, int[][] roads) {
         final int MOD = 1_000_000_007;

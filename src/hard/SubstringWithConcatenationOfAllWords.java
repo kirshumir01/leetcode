@@ -1,13 +1,18 @@
 package hard;
 
 /*
+#30 Substring with Concatenation of All Words
+
 You are given a string s and an array of strings words. All the strings of words are of the same length.
 
-A concatenated string is a string that exactly contains all the strings of any permutation of words concatenated.
+A concatenated string is a string that exactly contains all the strings of any permutation
+of words concatenated.
 
-For example, if words = ["ab","cd","ef"], then "abcdef", "abefcd", "cdabef", "cdefab", "efabcd", and "efcdab" are all concatenated strings.
+For example, if words = ["ab","cd","ef"], then "abcdef", "abefcd", "cdabef", "cdefab", "efabcd", and "efcdab"
+are all concatenated strings.
 "acdbef" is not a concatenated string because it is not the concatenation of any permutation of words.
-Return an array of the starting indices of all the concatenated substrings in s. You can return the answer in any order.
+Return an array of the starting indices of all the concatenated substrings in s.
+You can return the answer in any order.
 
 Example 1:
 Input: s = "barfoothefoobarman", words = ["foo","bar"]
@@ -40,7 +45,7 @@ import java.util.List;
 import java.util.Map;
 
 public class SubstringWithConcatenationOfAllWords {
-    public List<Integer> findSubstring(String s, String[] words) {
+    public static List<Integer> findSubstring(String s, String[] words) {
         List<Integer> result = new ArrayList<>();
 
         if (s == null || s.isEmpty() || words == null || words.length == 0) {
@@ -49,7 +54,6 @@ public class SubstringWithConcatenationOfAllWords {
 
         int wordLength = words[0].length();
         int wordsQuantity = words.length;
-        int subStringLength = wordLength * wordsQuantity;
         Map<String, Integer> wordCount = new HashMap<>();
 
         for (String word : words) {
@@ -88,5 +92,12 @@ public class SubstringWithConcatenationOfAllWords {
             }
         }
         return result;
+    }
+
+    public static void main(String[] args) {
+        String  s = "barfoothefoobarman";
+        String[] words = new String[]{"foo","bar"};
+
+        System.out.println(findSubstring(s, words)); // [0, 9]
     }
 }

@@ -3,6 +3,8 @@ package medium;
 import java.util.Arrays;
 
 /*
+#787 CHEAPEST FLIGHTS WITH K STOPS
+
 There are n cities connected by some number of flights.
 You are given an array flights where flights[i] = [fromi, toi, pricei] indicates that there is a flight from city fromi to city toi with cost pricei.
 You are also given three integers src, dst, and k, return the cheapest price from src to dst with at most k stops.
@@ -34,7 +36,7 @@ The optimal path with no stops from city 0 to 2 is marked in red and has cost 50
 */
 
 public class CheapestFlightsWithinKStops {
-    public int findCheapestPrice(int n, int[][] flights, int src, int dst, int k) {
+    public static int findCheapestPrice(int n, int[][] flights, int src, int dst, int k) {
         int[] minCoast = new int[n];
         Arrays.fill(minCoast, Integer.MAX_VALUE);
         minCoast[src] = 0;
@@ -50,5 +52,16 @@ public class CheapestFlightsWithinKStops {
             minCoast = temp;
         }
         return minCoast[dst] == Integer.MAX_VALUE ? -1 : minCoast[dst];
+    }
+
+    public static void main(String[] args) {
+        int n = 4;
+        int[][] flights = new int[][]{{0,1,100}, {1, 2, 100}, {2, 0, 100},{1,3,600},{2,3,200}};
+        int src = 0;
+        int dst = 3;
+        int k = 1;
+        int result = findCheapestPrice(n, flights, src, dst, k);
+
+        System.out.println(result); // 700
     }
 }

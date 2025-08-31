@@ -23,4 +23,14 @@
 hs_err_pid*
 replay_pid*
 
+#IntelliJ
+out/
+.idea/
+.idea_modules/
+*.iml
+*.ipr
+*.iws
+
+#MacOS
 .DS_store
+.

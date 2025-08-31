@@ -1,6 +1,8 @@
 package hard;
 
 /*
+#4 MEDIAN OF TWO SORTED ARRAYS
+
 Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
 The overall run time complexity should be O(log (m+n)).
 
@@ -61,6 +63,6 @@ public class MedianOfTwoSortedArrays {
         int[] nums2 = {2};
         double answer = solution.findMedianSortedArrays(nums1, nums2);
 
-        System.out.println(answer);
+        System.out.println(answer); // 2.0
     }
 }

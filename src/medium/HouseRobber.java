@@ -44,6 +44,6 @@ public class HouseRobber {
         HouseRobber solution = new HouseRobber();
         int[] nums = {2,7,9,3,1};
         int answer = solution.rob(nums);
-        System.out.println(answer);
+        System.out.println(answer); // 12
     }
 }
