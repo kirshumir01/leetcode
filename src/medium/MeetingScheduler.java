@@ -5,31 +5,24 @@ import java.util.Collections;
 import java.util.List;
 
 /*
-#1229
-Problem Description:
-The problem is about finding a mutual meeting time slot between two people given their individual schedules
-and a required meeting duration.
-Each person's schedule is represented by a list of non-overlapping time slots where a time slot is an array [start, end]
-showing availability from start to end.
-The goal is to find the earliest starting time slot that is available in both schedules and lasts at least
-for the given duration.
-If there's no such common time slot, we return an empty array.
+#1229 Meeting Scheduler
 
-RU:
-Условие задачи:
-Необходимо найти общий временной слот для встречи двух людей, учитывая их расписания и требуемую длительность встречи.
-Расписание каждого человека представлено списком непересекающихся временных интервалов.
-Нужно найти самый ранний доступный слот, который удовлетворяет всем условиям.
+Given the availability time slots arrays slots1 and slots2 of two people and a meeting duration duration,
+return the earliest time slot that works for both of them and is of duration duration.
+If there is no common time slot that satisfies the requirements, return an empty array.
+The format of a time slot is an array of two elements [start, end] representing an inclusive time range from start to end.
+It is guaranteed that no two availability slots of the same person intersect with each other.
+That is, for any two time slots [start1, end1] and [start2, end2] of the same person, either start1 > end2 or start2 > end1.
 
-Алгоритм решения:
-- сортировка слотов обоих расписаний по времени начала;
-- использовать два указателя для обхода расписаний: i - для первого расписания, j - для второго
-- поиск интервалов: для каждой пары интервалов из разных расписаний найти пересечение
-- сравнить длительность пересечений с продолжительностью планируемой встречи
-- проверка условий: если найден подходящий слот, вернуть его, если нет - перейти к следующему пересечению
-- если подходящие слоты не найдены - вернуть пустой массив
+Example 1:
+Input: slots1 = [[10,50],[60,120],[140,210]], slots2 = [[0,15],[60,70]], duration = 8
+Output: [60,68]
 
+Example 2:
+Input: slots1 = [[10,50],[60,120],[140,210]], slots2 = [[0,15],[60,70]], duration = 12
+Output: []
  */
+
 public class MeetingScheduler {
     public List<Integer> findMeetingTime(int[][] slots1, int[][] slots2, int duration) {
         // sort the time slots of each user
