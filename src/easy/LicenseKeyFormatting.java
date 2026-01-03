@@ -28,7 +28,7 @@ each part has 2 characters except the first part as it could be shorter as menti
 
 public class LicenseKeyFormatting {
     public static class Solution1 {
-        public static String licenseKeyFormatting(String s, int k) {
+        public String licenseKeyFormatting(String s, int k) {
             int count = 0;
             int n = s.length();
             StringBuilder ans = new StringBuilder();
@@ -55,17 +55,70 @@ public class LicenseKeyFormatting {
     }
 
     public static class Solution2 {
-        
+        public String licenseKeyFormatting(String s, int k) {
+            int totalChars = 0;
+
+            for (int i = 0; i < s.length(); i++) {
+                if (s.charAt(i)!='-') {
+                    totalChars++;
+                }
+            }
+
+            int firstGroupSize = totalChars % k;
+
+            if (firstGroupSize==0) {
+                firstGroupSize = k;
+            }
+
+            StringBuilder ans = new StringBuilder();
+            int count = 0;
+            int i = 0;
+
+            while (i < s.length()) {
+                if (count==firstGroupSize) {
+                    count = 0;
+                    break;
+                }
+
+                if (s.charAt(i)!='-') {
+                    count++;
+                    ans.append(Character.toUpperCase(s.charAt(i)));
+                }
+                i++;
+            }
+
+            if (i >= s.length()) {
+                return ans.toString();
+            }
+
+            ans.append('-');
+
+            while (i < s.length()) {
+                if (s.charAt(i)!='-') {
+                    if (count==k) {
+                        ans.append('-');
+                        count = 0;
+                    }
+                    ans.append(Character.toUpperCase(s.charAt(i)));
+                    count++;
+                }
+                i++;
+            }
+            return ans.toString();
+        }
     }
 
     public static void main(String[] args) {
+        Solution1 solution1 = new Solution1();
+        Solution2 solution2 = new Solution2();
+
         String s1 = "5F3Z-2e-9-w";
         int k1 = 4;
 
         String s2 = "2-5g-3-J";
         int k2 = 2;
 
-        System.out.println(licenseKeyFormatting(s1, k1)); // must be: "5F3Z-2E9W"
-        System.out.println(licenseKeyFormatting(s2, k2)); // must be: "2-5G-3J"
+        System.out.println(solution1.licenseKeyFormatting(s1, k1)); // must be: "5F3Z-2E9W"
+        System.out.println(solution2.licenseKeyFormatting(s2, k2)); // must be: "2-5G-3J"
     }
 }
