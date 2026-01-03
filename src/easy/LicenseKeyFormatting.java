@@ -26,31 +26,36 @@ Explanation: The string s has been split into three parts,
 each part has 2 characters except the first part as it could be shorter as mentioned above.
  */
 
-public class LicenseKeyFormatting_1 {
-    // VAR.1 - right to left:
-    public static String licenseKeyFormatting(String s, int k) {
-        int count = 0;
-        int n = s.length();
-        StringBuilder ans = new StringBuilder();
+public class LicenseKeyFormatting {
+    public static class Solution1 {
+        public static String licenseKeyFormatting(String s, int k) {
+            int count = 0;
+            int n = s.length();
+            StringBuilder ans = new StringBuilder();
 
-        for (int i = n - 1; i >= 0; i--) {
-            if (s.charAt(i) != '-') {
-                ans.append(Character.toUpperCase(s.charAt(i)));
-                count++;
-                if (count == k) {
-                    ans.append('-');
-                    count = 0;
+            for (int i = n - 1; i >= 0; i--) {
+                if (s.charAt(i) != '-') {
+                    ans.append(Character.toUpperCase(s.charAt(i)));
+                    count++;
+                    if (count == k) {
+                        ans.append('-');
+                        count = 0;
+                    }
                 }
             }
+
+            if (ans.length() > 0 && ans.charAt(ans.length() - 1) == '-') {
+                ans = new StringBuilder(ans.substring(0, ans.length() - 1));
+            }
+
+            ans.reverse();
+
+            return ans.toString();
         }
+    }
 
-        if (ans.length() > 0 && ans.charAt(ans.length() - 1) == '-') {
-            ans = new StringBuilder(ans.substring(0, ans.length() - 1));
-        }
-
-        ans.reverse();
-
-        return ans.toString();
+    public static class Solution2 {
+        
     }
 
     public static void main(String[] args) {
